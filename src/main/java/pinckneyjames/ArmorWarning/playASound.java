@@ -1,4 +1,4 @@
-/*
+/**
  * @author James Pinckney
  * @Version 1.5
  */
@@ -35,9 +35,13 @@ public final class playASound extends JavaPlugin implements Listener {
 				getplayer = new getPlayer();
 				Location playerLoc = player.getLocation();	//get the player's location
 				world.playSound(playerLoc, Sound.ANVIL_LAND, 20, 1);
-				player.sendMessage("§bHey, looks like your armor is breaking!");
-				player.sendMessage("§bHey, looks like your armor is breaking!"); //Send the player an alert in case their volume is off
+				player.sendMessage("§6---*----*----*----*----*----*----*----*----*----*--");
+				player.sendMessage("§6---              §b§l§oHey " + player.getName() + ",                     §6---");
+				player.sendMessage("§6---       §b§l§olooks like your armor is breaking!      §6---");
+				player.sendMessage("§6---*----*----*----*----*----*----*----*----*----*--");
+				//Send the player an alert in case their volume is off
 			}
+			player = getplayer.returnPlayer();
 
 		}
 	}

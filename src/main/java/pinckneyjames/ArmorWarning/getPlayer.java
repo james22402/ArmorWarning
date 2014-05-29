@@ -10,16 +10,21 @@ import org.bukkit.entity.Player;
 public class getPlayer {
 
 	public Player player;
+	playASound playsound = new playASound();
+	TestArmor test = new TestArmor();
 
+	/*JRP*/
 	/**
-	 * @return a player in the array JRP
+	 * Get all the players on the server and test their armor and durability
 	 */
-	public Player returnPlayer() {
+	public void returnPlayer() {
 		// Get all the players currently online
 		Player[] playerray = Bukkit.getOnlinePlayers();
-			for (int i = 0; i < playerray.length; i++) {
-				player = playerray[i];
-			}
-			return player;
+			for (Player element : playerray)
+				if(test.atRisk(element) == true)
+				{
+					playsound.aSound(element);
+				}
 		}
 	}
+	

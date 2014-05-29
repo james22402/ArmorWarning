@@ -15,33 +15,24 @@ public final class playASound extends JavaPlugin implements Listener {
 
 	/*JRP*/
 	public TestArmor testarmor;
-	public getPlayer getplayer;
 	public World world;
 	
 	public playASound() {
 		testarmor = new TestArmor();
-		getplayer = new getPlayer();
 	}
 
 	/**
-	 * This will play a sound to the player if their armor is breaking, Further
-	 * implementation may be added for a sound if the armor actually breaks.
+	 * This will play a sound to the player if their armor is breaking. It also displays
+	 * a nice looking message that alerts the player.
 	 */
-	public void aSound() {
-		Player player = getplayer.returnPlayer();  //Get a player from the array
-			if (testarmor.atRisk() == true) {      //call method from TestArmor class
+	public void aSound(Player player) {
 				world = player.getWorld();		   //get the world near thge current player
-				testarmor = new TestArmor();	   
-				getplayer = new getPlayer();
 				Location playerLoc = player.getLocation();	//get the player's location
-				world.playSound(playerLoc, Sound.ANVIL_LAND, 20, 1);
+				world.playSound(playerLoc, Sound.ANVIL_LAND, 1, 1);
 				player.sendMessage("§6---*----*----*----*----*----*----*----*----*----*--");
 				player.sendMessage("§6---              §b§l§oHey " + player.getName() + ",                     §6---");
 				player.sendMessage("§6---       §b§l§olooks like your armor is breaking!      §6---");
 				player.sendMessage("§6---*----*----*----*----*----*----*----*----*----*--");
 				//Send the player an alert in case their volume is off
 			}
-			player = getplayer.returnPlayer();
-
 		}
-	}

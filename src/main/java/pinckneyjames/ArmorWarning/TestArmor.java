@@ -44,15 +44,12 @@ public final class TestArmor extends JavaPlugin implements Listener {
 	public Material chest;
 	public Material helm;
 	boolean isBroken;
-	public getPlayer getplayer;
-	public Player player;
 
 	/**
 	 * Default Constructer.
 	 */
 	public TestArmor() {
-		isBroken = true;
-		getplayer = new getPlayer();
+		isBroken = false;
 	}
 
 	/**
@@ -60,15 +57,13 @@ public final class TestArmor extends JavaPlugin implements Listener {
 	 * armor at all; If the Player is, return true and go to playASound, to
 	 * alert the Player.
 	 * 
-	 * @return true if the player is wearing armor, false if they aren't
+	 * @return true if the player is wearing armor, false if they aren't, or the durability is high
 	 */
-	public boolean atRisk() {
+	public boolean atRisk(Player player) {
 
 		int n = 0;
 		if (Bukkit.getOnlinePlayers().length <= n) {
 			return false;
-		} else {
-			player = getplayer.returnPlayer();
 		}
 		for (int i = 0; i < Bukkit.getOnlinePlayers().length; i++) {
 
@@ -95,97 +90,95 @@ public final class TestArmor extends JavaPlugin implements Listener {
 			if (player.getInventory().getBoots() != null) {
 				if (boots == Material.LEATHER_BOOTS) {
 					if (bootDurability >= leatherBoot - (leatherBoot / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (boots == Material.CHAINMAIL_BOOTS) {
 					if (bootDurability >= chainBoot - (chainBoot / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (boots == Material.GOLD_BOOTS) {
 					if (bootDurability >= goldBoot - (goldBoot / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (boots == Material.IRON_BOOTS) {
 					if (bootDurability >= ironBoot - (ironBoot / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (boots == Material.DIAMOND_BOOTS) {
 					if (bootDurability >= diamondBoot - (diamondBoot / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				}
 			}
 			if (player.getInventory().getLeggings() != null) {
 				if (legs == Material.LEATHER_LEGGINGS) {
 					if (leggingDurability >= leatherLeg - (leatherLeg / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (legs == Material.CHAINMAIL_LEGGINGS) {
 					if (leggingDurability >= chainLeg - (chainLeg / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (legs == Material.GOLD_LEGGINGS) {
 					if (leggingDurability >= goldLeg - (goldLeg / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (legs == Material.IRON_LEGGINGS) {
 					if (leggingDurability >= ironLeg - (ironLeg / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (legs == Material.DIAMOND_LEGGINGS) {
 					if (leggingDurability >= diamondLeg - (diamondLeg / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				}
 			}
 			if (player.getInventory().getChestplate() != null) {
 				if (chest == Material.LEATHER_CHESTPLATE) {
 					if (chestDurability >= leatherChest - (leatherChest / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (chest == Material.CHAINMAIL_CHESTPLATE) {
 					if (chestDurability >= chainChest - (chainChest / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (chest == Material.GOLD_CHESTPLATE) {
 					if (chestDurability >= goldChest - (goldChest / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (chest == Material.IRON_CHESTPLATE) {
 					if (chestDurability >= ironChest - (ironChest / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (chest == Material.DIAMOND_CHESTPLATE) {
 					if (chestDurability >= diamondChest - (diamondChest / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				}
 			}
 			if (player.getInventory().getHelmet() != null) {
 				if (helm == Material.LEATHER_HELMET) {
 					if (helmetDurability >= leatherHat - (leatherHat / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (helm == Material.CHAINMAIL_HELMET) {
 					if (helmetDurability >= chainHat - (chainHat / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (helm == Material.GOLD_HELMET) {
 					if (helmetDurability >= goldHat - (goldHat / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (helm == Material.IRON_HELMET) {
 					if (helmetDurability >= ironHat - (ironHat / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				} else if (helm == Material.DIAMOND_HELMET) {
 					if (helmetDurability >= diamondHat - (diamondHat / 15)) {
-						return isBroken;
+						isBroken = true; return isBroken;
 					}
 				}
 			}
-			player = getplayer.returnPlayer();
-
 		}
 		return false;
 		// The players armor must either not be within the limit, or the Player

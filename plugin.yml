@@ -1,3 +1,6 @@
 name: ArmorTester
 main: pinckneyjames.ArmorWarning.Runner
 version: 1.5
+commands:
+  reload:
+    description: Reloads all the plugins.
